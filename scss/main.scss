@@ -82,7 +82,7 @@ main {
     grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
-    border: $secondary-color 3px solid;
+    border: $tertiary-color 3px solid;
   }
   .bio {
     grid-area: bio;
@@ -103,8 +103,34 @@ main {
     padding: 0.5rem;
     border-bottom: $secondary-color 4px solid;
     border-radius: 30px;
-    border-right: green 5px solid;
+    border-right: $tertiary-color 5px solid;
   }
+}
+
+// Button Style
+.btn {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($color: $primary-color, $amount: 50);
+  color: #fff;
+  border-radius: 25px;
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($color: $primary-color, $amount: 50);
+  color: #333;
+  border-radius: 25px;
 }
 
 #main-footer {
@@ -113,6 +139,24 @@ main {
   background: darken($color: $primary-color, $amount: 10);
   color: set-text-color($primary-color);
   height: 60px;
+}
+
+// work/Projects
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  img {
+    width: 100%;
+    border: 3px #4b0082 solid;
+
+    &:hover {
+      opacity: 0.5;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
 }
 
 @import "mobile";
